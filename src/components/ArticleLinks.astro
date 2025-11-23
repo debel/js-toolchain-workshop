@@ -1,0 +1,37 @@
+---
+import type { AstroArticle } from '../helpers.astro';
+
+export interface Props {
+  article: AstroArticle
+}
+
+const { article } = Astro.props;
+
+const linksEntries = Object.entries(article.data.links || {});
+---
+
+{
+  linksEntries.length > 0
+    ? (
+      <div class="lesson-links">
+        <h2>Useful Resources</h2>
+          <ul>
+            {linksEntries.map(([text, link]) => (
+              <li><a href={link} target="_blank">{text}</a></li>
+            ))}
+          </ul>
+      </div>
+      )
+    : <></>
+}
+
+<style>
+
+@media print {
+  .lesson-links {
+    display: none;
+  }
+}
+
+</style>
+

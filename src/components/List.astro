@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleOverview from './ArticleOverview.astro';
+import type { DataEntryMap } from 'astro:content';
+
+export interface Props {
+  collection: keyof DataEntryMap;
+}
+
+const { collection } = Astro.props;
+
+const items = (await getCollection(collection))
+    .filter(a => !a.data.hidden)
+    .sort((a, b) => a.data.order - b.data.order);
+---
+
+{items.length === 0 ? (
+  <p>Nothing here yet. Check back soon!</p>
+) : (
+  items.map((item) => <ArticleOverview article={item} />)
+)}

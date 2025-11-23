@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+const articles = await getCollection('topics');
+
+const articleLinks = articles
+  .map(article => article.data.links)
+  .reduce((all: string[][], articleLinks) => {
+    return [...all, ...Object.entries(articleLinks || {})];
+}, []);
+
+---
+
+<ArticleLayout title="All external links" description="All links from all topics" hideTableOfContents={true}>
+  <div class="page">
+    <ul>
+      {articleLinks.map(([text, link]) => (
+      <li><a href={link}>{text}</a></li>
+      ))}
+    </ul>
+  </div>
+</ArticleLayout>
+

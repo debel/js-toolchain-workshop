@@ -1,0 +1,26 @@
+---
+import SlidesLayout from '../../../layouts/SlidesLayout.astro';
+import ArticleNavigation from '../../../components/ArticleNavigation.astro';
+
+import { buildCollectionNavigationProps } from '../../../helpers.astro';
+
+export async function getStaticPaths() {
+  return await buildCollectionNavigationProps('topics');
+}
+
+const { article, prev, next } = Astro.props;
+
+const articleContent = article.body?.replaceAll(/<bonus-content>.*?<\/bonus-content>/gs, '');
+---
+
+<SlidesLayout {...article.data}>
+  <section data-markdown>
+    <textarea data-template>
+      ## {article.data.title}
+      {article.data.description}
+      ---
+      {articleContent}
+    </textarea>
+  </section>
+  <ArticleNavigation slot="bottom-nav" prev={prev} next={next} view='slides' />
+</SlidesLayout>

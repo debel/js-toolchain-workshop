@@ -1,0 +1,36 @@
+---
+import { baseUrl, type AstroArticle } from '../helpers.astro';
+
+export interface Props {
+  article: AstroArticle,
+}
+
+const { article } = Astro.props;
+
+const articleUrl = `${baseUrl}topics/${article.slug}`;
+---
+
+<article class="post on-list">
+  <h2 class="post-overview-title">
+    <a href={articleUrl}>
+      {article.data.title}
+    </a>
+  </h2>
+  <div class="post-meta">
+  </div>
+  {article.data.description && (
+    <div class="post-content">
+      <p>{article.data.description}</p>
+    </div>
+  )}
+</article>
+
+<style>
+.post-overview-title a {
+  color: var(--accent) !important;
+}
+
+.spaced *{
+  padding-right: 10px;
+}
+</style>

@@ -1,0 +1,196 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  order?: number;
+  hideTableOfContents?: boolean;
+}
+
+const { title, description, hideTableOfContents } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="lesson-page">
+    <div class="flexy flexy-row border-bottom">
+      <h1 class="post-title">{title}</h1>
+    </div>
+
+    <div class="post-meta">
+    </div>
+
+    {!hideTableOfContents && (
+      <aside id="lesson-outline">
+        <h3>Contents:</h3>
+      </aside>
+    )}
+
+    <div class="post-content">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
+
+<script>
+  (function renderOverview() {
+    const outline = document.querySelector('#lesson-outline');
+    const headings = document.querySelectorAll('h2');
+
+    if (!outline) { return }
+
+    headings.forEach(h => {
+      const hslug = h.innerText.replaceAll(' ','-').toLowerCase();
+      if (outline) {
+      outline.innerHTML+=`<li><a href="#${hslug}">${h.innerText}</a></li>`;
+      }
+      h.innerHTML+=`<a id=${hslug} class="button inline hslug" href="#${hslug}">-</a>`;
+    });
+  }());
+ 
+
+  window.handleAnswer = function (el: string, selected: string, actual: string) {
+    document.querySelector(`#${el}`)?.classList.add(selected == actual ? 'correct': 'wrong');
+  };
+
+  (function renderQuestions() {
+    const questions = document.querySelectorAll('pop-quiz');
+
+    questions.forEach((q, qi) => {
+      const answer = q.getAttribute('data-answer-id');
+      const options = q.querySelectorAll('li');
+
+      options.forEach((o, oi) => {
+        const text = o.innerText;
+        const id = `q-${qi}-${oi}`;
+ 
+        o.innerHTML = `<button id="${id}" data-option-id="${oi}" onclick="handleAnswer('${id}', ${oi}, ${answer})">${text}</button>`;
+      });
+    });
+  }());
+</script>
+
+<style is:global>
+  class-note {
+    margin-top: 20px;
+    display: inline-block;
+    border-top: 1px solid #b55151;
+    border-bottom: 1px solid #b55151; 
+  }
+
+  class-note>p:first-child:before {
+    content: 'NOTE: ';
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  home-work {
+    display: block;
+    padding-left: 15px;
+    border-left: 5px solid #b55151;
+  }
+
+  home-work>h3:before {
+    content: 'Home Exercise: ';
+    color: var(--accent);
+  }
+
+  class-work {
+    display: block;
+    padding-left: 15px;
+    border-left: 5px solid #b55151;
+  }
+
+  class-work>h3:before {
+    content: 'Class Exercise: ';
+    color: var(--accent);
+  }
+
+  pop-quiz {
+    display: block;
+    padding-left: 15px;
+    border-left: 5px solid #b55151;
+  }
+
+  pop-quiz>h3:before {
+    content: 'Question: ';
+    color: var(--accent);
+  }
+
+  pop-quiz ul {
+    list-style: none !important;
+  }
+
+  pop-quiz li {
+    margin-bottom: 10px;
+  }
+
+  pop-quiz li:before {
+    content: none !important;
+  }
+
+  pop-quiz button {
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
+  }
+
+  pop-quiz button.correct {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--background);
+  }
+
+  pop-quiz button.wrong {
+    background-color: #b55151;
+  }
+    border-color: #b55151;
+    color: var(--background);
+  }
+
+  .hslug {
+    margin-left: 10px;
+    font-size: .75rem;
+    vertical-align: top;
+  }
+
+  .flexy {
+    display: flex;
+  }
+
+  .flexy-row {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .flexy.border-bottom {
+    padding-bottom: 10px;
+    border-bottom: 3px dotted var(--secondary);
+    margin-bottom: 5px;
+  }
+
+  .flexy.border-bottom .post-title {
+    padding-bottom: 0;
+    vertical-align: middle !important;
+  }
+  .flexy.border-bottom .post-title:after{
+    content: none;
+  }
+
+  .under-construction {
+    line-height: 1.3;
+    font-size: 2rem;
+    border: 2px dashed #b55151;
+    padding: 10px;
+  }
+
+  @media print {
+    .hslug {
+      display: none;
+    }
+
+    .post-meta {
+      display: none;
+    }
+
+  }
+</style>

@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleNavigation from '../components/ArticleNavigation.astro'
+import UnderConstruction from '../components/UnderConstruction.astro';
+
+const moreAbout = {
+  slug: "slides/the-workshop",
+  data: {
+    title: "Lets get started",
+  },
+}
+---
+
+<BaseLayout title="JS Toolchain workshop">
+  <h1 id="hello-there">Demystifying the modern js toolchain workshop</h1>
+
+  <div class="index-content framed">
+    <h2>Welcome to our litle workshop!</h2>
+
+    <p>
+      Today we are going to explore the JS toolchain.
+    </p>
+
+    <p>
+      We are going to:
+    </p>
+    <ul>
+      <li>learn why we need tools to build websites.</li>
+      <li>learn about some of the tools we can use</li>
+      <li>learn about how these tools work</li>
+      <li>play around with everything</li>
+      <li>build a sample project</li>
+    </ul>
+
+    <p>
+      Feel free to participate, ask questions and have fun!
+    </p>
+  </div>
+  
+  <UnderConstruction type='site' />
+
+  <ArticleNavigation next={moreAbout}/>
+</BaseLayout>
+

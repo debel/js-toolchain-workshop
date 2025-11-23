@@ -1,0 +1,12 @@
+
+---
+import ArcticleLayout from '../../layouts/ArticleLayout.astro';
+import List from '../../components/List.astro';
+---
+
+<ArcticleLayout title="Topics" hideTableOfContents={true}>
+  <div class="page">
+    <List collection='topics' />
+  </div>
+</ArcticleLayout>
+

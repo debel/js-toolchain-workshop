@@ -1,0 +1,45 @@
+---
+import { baseUrl, type AstroArticle } from '../helpers.astro';
+
+interface AdhocNav {
+  slug: string;
+  data: {
+    title: string;
+  }
+}
+
+export interface Props {
+  prev?: AstroArticle | AdhocNav | null;
+  next?: AstroArticle | AdhocNav | null;
+}
+
+const {
+  prev,
+  next,
+} = Astro.props;
+
+---
+
+<div class="pagination">
+  <div class="pagination__buttons">
+    {prev && (
+        <a href={`${baseUrl}topics/${prev.slug}`} class="button inline prev">
+          <span class="button__text">{prev.data.title}</span>
+        </a>
+    )}
+    {prev && next && <span class="article-only">::</span>}
+    {next && (
+      <a href={`${baseUrl}topics/${next.slug}`} class="button inline next">
+        <span class="button__text">{next.data.title}</span>
+      </a>
+    )}
+  </div>
+</div>
+
+<style>
+  @media print {
+    .pagination {
+      display: none;
+    }
+  }
+</style>

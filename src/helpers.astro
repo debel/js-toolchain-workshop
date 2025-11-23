@@ -1,0 +1,21 @@
+---
+import { getCollection, type DataEntryMap } from 'astro:content';
+
+export type AstroArticle = Awaited<ReturnType<typeof getCollection>>[number];
+
+export const baseUrl = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : import.meta.env.BASE_URL + '/';
+
+export async function buildCollectionNavigationProps(collection: keyof DataEntryMap) {
+  const items = (await getCollection(collection))
+  .sort((a, b) => a.data.order - b.data.order)
+
+  return items.map((article, index) => ({
+    params: { slug: article.slug },
+    props: {
+      article,
+      next: index < items.length - 1 ? items[index + 1] : null,
+      prev: index > 0 ? items[index - 1] : null,
+    },
+  }));
+}
+---

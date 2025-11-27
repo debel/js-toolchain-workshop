@@ -1,0 +1,119 @@
+<svg viewBox="0 0 800 750" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+  </defs>
+  
+  <style>
+    .title { font-size: 20px; font-weight: bold; fill: #333; }
+    .hook { fill: #FFD54F; stroke: #F57C00; stroke-width: 2; }
+    .process { fill: #90CAF9; stroke: #1976D2; stroke-width: 2; }
+    .tool { fill: #A5D6A7; stroke: #388E3C; stroke-width: 2; }
+    .optimize { fill: #CE93D8; stroke: #7B1FA2; stroke-width: 2; }
+    .label { font-size: 13px; fill: #333; text-anchor: middle; }
+    .small { font-size: 10px; fill: #666; text-anchor: middle; }
+  </style>
+  
+  <text x="400" y="30" class="title" text-anchor="middle">PRODUCTION - Phase 3: Optimization & Rendering</text>
+  
+  <!-- Module graph complete -->
+  <rect x="320" y="60" width="160" height="40" rx="5" class="process"/>
+  <text x="400" y="85" class="label">Module Graph Ready</text>
+  
+  <line x1="400" y1="100" x2="400" y2="125" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Plugin Hook: renderStart -->
+  <rect x="320" y="130" width="160" height="40" rx="5" class="hook"/>
+  <text x="400" y="155" class="label" font-weight="bold">🔌 renderStart</text>
+  
+  <line x1="400" y1="170" x2="400" y2="195" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Optimization section -->
+  <rect x="150" y="200" width="500" height="300" rx="10" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="400" y="225" style="font-size: 14px; font-weight: bold; fill: #7B1FA2; text-anchor: middle;">Optimization Phase</text>
+  
+  <!-- Code Splitting -->
+  <rect x="180" y="245" width="200" height="50" rx="5" class="optimize"/>
+  <text x="280" y="265" class="label" font-weight="bold">Code Splitting</text>
+  <text x="280" y="280" class="small">Dynamic imports → chunks</text>
+  
+  <!-- Tree Shaking -->
+  <rect x="420" y="245" width="200" height="50" rx="5" class="optimize"/>
+  <text x="520" y="265" class="label" font-weight="bold">Tree Shaking</text>
+  <text x="520" y="280" class="small">Remove unused exports</text>
+  
+  <!-- Minification -->
+  <rect x="180" y="315" width="200" height="65" rx="5" class="tool"/>
+  <text x="280" y="340" class="label" font-weight="bold">⚡ Minification</text>
+  <text x="280" y="355" class="small">esbuild (default) or</text>
+  <text x="280" y="370" class="small">terser (advanced)</text>
+  
+  <!-- Source Map Generation -->
+  <rect x="420" y="315" width="200" height="65" rx="5" class="tool"/>
+  <text x="520" y="340" class="label" font-weight="bold">🗺️ Source Maps</text>
+  <text x="520" y="355" class="small">Generate .map files</text>
+  <text x="520" y="370" class="small">for debugging</text>
+  
+  <!-- CSS Processing -->
+  <rect x="180" y="400" width="200" height="65" rx="5" class="tool"/>
+  <text x="280" y="420" class="label" font-weight="bold">🎨 CSS Processing</text>
+  <text x="280" y="435" class="small">PostCSS transforms</text>
+  <text x="280" y="450" class="small">Extract to .css files</text>
+  
+  <!-- Asset Optimization -->
+  <rect x="420" y="400" width="200" height="65" rx="5" class="optimize"/>
+  <text x="520" y="420" class="label" font-weight="bold">Asset Optimization</text>
+  <text x="520" y="435" class="small">Images, fonts</text>
+  <text x="520" y="450" class="small">Hash filenames</text>
+  
+  <line x1="400" y1="500" x2="400" y2="530" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Plugin Hook: renderChunk -->
+  <rect x="320" y="535" width="160" height="40" rx="5" class="hook"/>
+  <text x="400" y="560" class="label" font-weight="bold">🔌 renderChunk</text>
+  
+  <line x1="400" y1="575" x2="400" y2="600" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Plugin Hook: augmentChunkHash -->
+  <rect x="320" y="605" width="160" height="45" rx="5" class="hook"/>
+  <text x="400" y="625" class="label" font-weight="bold">🔌 augmentChunk</text>
+  <text x="400" y="640" class="label" font-weight="bold">Hash</text>
+  
+  <line x1="400" y1="650" x2="400" y2="675" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Plugin Hook: generateBundle -->
+  <rect x="320" y="680" width="160" height="40" rx="5" class="hook"/>
+  <text x="400" y="705" class="label" font-weight="bold">🔌 generateBundle</text>
+  
+  <!-- Side panel: Output structure -->
+  <rect x="20" y="245" width="120" height="255" rx="5" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2"/>
+  <text x="80" y="270" style="font-size: 12px; font-weight: bold; fill: #2E7D32; text-anchor: middle;">Output Chunks</text>
+  
+  <text x="30" y="295" style="font-size: 10px; fill: #666; font-weight: bold;">main.[hash].js</text>
+  <text x="35" y="310" style="font-size: 9px; fill: #666;">Entry point</text>
+  
+  <text x="30" y="335" style="font-size: 10px; fill: #666; font-weight: bold;">vendor.[hash].js</text>
+  <text x="35" y="350" style="font-size: 9px; fill: #666;">node_modules</text>
+  
+  <text x="30" y="375" style="font-size: 10px; fill: #666; font-weight: bold;">lazy.[hash].js</text>
+  <text x="35" y="390" style="font-size: 9px; fill: #666;">Dynamic imports</text>
+  
+  <text x="30" y="415" style="font-size: 10px; fill: #666; font-weight: bold;">style.[hash].css</text>
+  <text x="35" y="430" style="font-size: 9px; fill: #666;">Extracted CSS</text>
+  
+  <text x="30" y="455" style="font-size: 10px; fill: #666; font-weight: bold;">*.map</text>
+  <text x="35" y="470" style="font-size: 9px; fill: #666;">Source maps</text>
+  
+  <!-- Legend -->
+  <rect x="670" y="520" width="120" height="130" rx="5" fill="#F5F5F5" stroke="#999" stroke-width="1"/>
+  <text x="730" y="540" style="font-size: 11px; font-weight: bold; fill: #333; text-anchor: middle;">Legend</text>
+  <rect x="678" y="548" width="35" height="16" class="hook"/>
+  <text x="718" y="558" style="font-size: 9px; fill: #333;">Plugin Hook</text>
+  <rect x="678" y="569" width="35" height="16" class="tool"/>
+  <text x="718" y="579" style="font-size: 9px; fill: #333;">Tool Used</text>
+  <rect x="678" y="590" width="35" height="16" class="optimize"/>
+  <text x="718" y="600" style="font-size: 9px; fill: #333;">Optimization</text>
+  <rect x="678" y="611" width="35" height="16" class="process"/>
+  <text x="718" y="621" style="font-size: 9px; fill: #333;">Process</text>
+</svg>

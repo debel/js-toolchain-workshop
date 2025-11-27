@@ -1,0 +1,126 @@
+<svg viewBox="0 0 800 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+    <marker id="arrowhead-success" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#2E7D32" />
+    </marker>
+    <marker id="arrowhead-error" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#C62828" />
+    </marker>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">
+    Production Build: Output & Finalization Phase
+  </text>
+  
+  <!-- Bundle Ready -->
+  <rect x="320" y="60" width="160" height="50" rx="5" fill="#87CEEB" stroke="#333" stroke-width="2" filter="url(#shadow)"/>
+  <text x="400" y="85" font-size="14" font-weight="bold" text-anchor="middle">Bundles Generated</text>
+  
+  <line x1="400" y1="110" x2="400" y2="135" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- outputOptions hook -->
+  <rect x="300" y="140" width="200" height="40" rx="5" fill="#FFD700" stroke="#333" stroke-width="2" filter="url(#shadow)"/>
+  <text x="400" y="165" font-size="14" text-anchor="middle" font-weight="bold">outputOptions Hook</text>
+  
+  <line x1="400" y1="180" x2="400" y2="205" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Error check -->
+  <path d="M 400,205 L 400,230 L 450,255 L 400,280 L 350,255 Z" fill="#FFF9C4" stroke="#333" stroke-width="2" filter="url(#shadow)"/>
+  <text x="400" y="255" font-size="13" font-weight="bold" text-anchor="middle">Build Errors?</text>
+  
+  <!-- Error path -->
+  <line x1="350" y1="255" x2="200" y2="255" stroke="#C62828" stroke-width="3" marker-end="url(#arrowhead-error)"/>
+  <text x="270" y="245" font-size="12" fill="#C62828" font-weight="bold">YES</text>
+  
+  <rect x="80" y="230" width="120" height="50" rx="5" fill="#FFD700" stroke="#333" stroke-width="2" filter="url(#shadow)"/>
+  <text x="140" y="250" font-size="11" text-anchor="middle" font-weight="bold">buildEnd Hook</text>
+  <text x="140" y="265" font-size="9" text-anchor="middle" fill="#666">(with error)</text>
+  
+  <line x1="140" y1="280" x2="140" y2="315" stroke="#C62828" stroke-width="3" marker-end="url(#arrowhead-error)"/>
+  
+  <ellipse cx="140" cy="340" rx="70" ry="30" fill="#FFCDD2" stroke="#C62828" stroke-width="3" filter="url(#shadow)"/>
+  <text x="140" y="340" font-size="14" font-weight="bold" text-anchor="middle" fill="#C62828">Build Failed</text>
+  <text x="140" y="355" font-size="10" text-anchor="middle" fill="#C62828">Exit code 1</text>
+  
+  <!-- Success path -->
+  <line x1="450" y1="255" x2="600" y2="255" stroke="#2E7D32" stroke-width="3" marker-end="url(#arrowhead-success)"/>
+  <text x="520" y="245" font-size="12" fill="#2E7D32" font-weight="bold">NO</text>
+  
+  <!-- writeBundle hook -->
+  <rect x="540" y="230" width="120" height="50" rx="5" fill="#FFD700" stroke="#333" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="255" font-size="12" text-anchor="middle" font-weight="bold">writeBundle Hook</text>
+  
+  <line x1="600" y1="280" x2="600" y2="315" stroke="#2E7D32" stroke-width="3" marker-end="url(#arrowhead-success)"/>
+  
+  <!-- Write to Disk Section -->
+  <rect x="450" y="320" width="300" height="210" rx="10" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="600" y="340" font-size="14" font-weight="bold" text-anchor="middle" fill="#2E7D32">Write to Disk</text>
+  
+  <!-- Write files -->
+  <rect x="480" y="360" width="240" height="50" rx="5" fill="#E3F2FD" stroke="#333" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="380" font-size="13" font-weight="bold" text-anchor="middle">Write dist/ folder:</text>
+  <text x="600" y="398" font-size="11" text-anchor="middle" fill="#666">All chunks, assets, HTML</text>
+  
+  <line x1="600" y1="410" x2="600" y2="435" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Generate manifest -->
+  <rect x="480" y="440" width="240" height="50" rx="5" fill="#E3F2FD" stroke="#333" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="460" font-size="13" text-anchor="middle">Generate manifest.json</text>
+  <text x="600" y="478" font-size="10" text-anchor="middle" fill="#666">File hash mappings</text>
+  
+  <line x1="600" y1="490" x2="600" y2="515" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- dist structure visualization -->
+  <rect x="240" y="390" width="180" height="140" rx="5" fill="#FFF3E0" stroke="#FF9800" stroke-width="2"/>
+  <text x="330" y="410" font-size="12" font-weight="bold" text-anchor="middle" fill="#FF6F00">dist/ Structure</text>
+  <text x="250" y="430" font-size="10" font-family="monospace" fill="#666">dist/</text>
+  <text x="260" y="445" font-size="10" font-family="monospace" fill="#666">├─ index.html</text>
+  <text x="260" y="460" font-size="10" font-family="monospace" fill="#666">├─ assets/</text>
+  <text x="270" y="475" font-size="10" font-family="monospace" fill="#666">  ├─ main.abc123.js</text>
+  <text x="270" y="490" font-size="10" font-family="monospace" fill="#666">  ├─ vendor.def456.js</text>
+  <text x="270" y="505" font-size="10" font-family="monospace" fill="#666">  └─ style.ghi789.css</text>
+  <text x="260" y="520" font-size="10" font-family="monospace" fill="#666">└─ manifest.json</text>
+  
+  <!-- buildEnd hook -->
+  <rect x="540" y="520" width="120" height="40" rx="5" fill="#FFD700" stroke="#333" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="545" font-size="12" text-anchor="middle" font-weight="bold">buildEnd Hook</text>
+  
+  <line x1="600" y1="560" x2="600" y2="585" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- closeBundle hook -->
+  <rect x="540" y="590" width="120" height="40" rx="5" fill="#FFD700" stroke="#333" stroke-width="2" filter="url(#shadow)"/>
+  <text x="600" y="615" font-size="12" text-anchor="middle" font-weight="bold">closeBundle Hook</text>
+  
+  <line x1="600" y1="630" x2="600" y2="660" stroke="#2E7D32" stroke-width="3" marker-end="url(#arrowhead-success)"/>
+  
+  <!-- Success -->
+  <ellipse cx="600" cy="680" rx="90" ry="30" fill="#C8E6C9" stroke="#2E7D32" stroke-width="3" filter="url(#shadow)"/>
+  <text x="600" y="680" font-size="16" font-weight="bold" text-anchor="middle" fill="#2E7D32">Build Complete!</text>
+  <text x="600" y="695" font-size="11" text-anchor="middle" fill="#1B5E20">✓ Ready for deployment</text>
+  
+  <!-- Build stats box -->
+  <rect x="50" y="450" width="160" height="110" rx="5" fill="#E3F2FD" stroke="#2196F3" stroke-width="2"/>
+  <text x="130" y="470" font-size="12" font-weight="bold" text-anchor="middle" fill="#1565C0">Build Statistics</text>
+  <text x="60" y="490" font-size="10" fill="#666">✓ Modules processed</text>
+  <text x="60" y="505" font-size="10" fill="#666">✓ Bundle size</text>
+  <text x="60" y="520" font-size="10" fill="#666">✓ Chunks generated</text>
+  <text x="60" y="535" font-size="10" fill="#666">✓ Build time</text>
+  <text x="60" y="550" font-size="10" fill="#666">✓ Compression ratio</text>
+  
+  <!-- Legend -->
+  <rect x="20" y="60" width="140" height="80" rx="5" fill="#F5F5F5" stroke="#999" stroke-width="1"/>
+  <text x="30" y="80" font-size="11" font-weight="bold" fill="#666">Legend:</text>
+  <rect x="30" y="85" width="20" height="12" fill="#FFD700" stroke="#333" stroke-width="1"/>
+  <text x="55" y="95" font-size="9" fill="#666">Plugin Hook</text>
+  <rect x="30" y="102" width="20" height="12" fill="#E3F2FD" stroke="#333" stroke-width="1"/>
+  <text x="55" y="112" font-size="9" fill="#666">Process</text>
+  <line x1="30" y1="123" x2="50" y2="123" stroke="#2E7D32" stroke-width="2"/>
+  <text x="55" y="128" font-size="9" fill="#666">Success</text>
+</svg>

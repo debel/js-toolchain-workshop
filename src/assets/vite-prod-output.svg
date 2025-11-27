@@ -1,0 +1,128 @@
+<svg viewBox="0 0 700 650" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+    <marker id="arrow-success" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#2E7D32" />
+    </marker>
+    <marker id="arrow-error" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#C62828" />
+    </marker>
+  </defs>
+  
+  <style>
+    .title { font-size: 20px; font-weight: bold; fill: #333; }
+    .hook { fill: #FFD54F; stroke: #F57C00; stroke-width: 2; }
+    .process { fill: #90CAF9; stroke: #1976D2; stroke-width: 2; }
+    .success { fill: #C8E6C9; stroke: #2E7D32; stroke-width: 2; }
+    .error { fill: #FFCDD2; stroke: #C62828; stroke-width: 2; }
+    .label { font-size: 13px; fill: #333; text-anchor: middle; }
+    .small { font-size: 10px; fill: #666; text-anchor: middle; }
+  </style>
+  
+  <text x="350" y="30" class="title" text-anchor="middle">PRODUCTION - Phase 4: Output & Finalization</text>
+  
+  <!-- Bundles generated -->
+  <rect x="270" y="60" width="160" height="40" rx="5" class="process"/>
+  <text x="350" y="85" class="label">Bundles Generated</text>
+  
+  <line x1="350" y1="100" x2="350" y2="125" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Plugin Hook: outputOptions -->
+  <rect x="270" y="130" width="160" height="40" rx="5" class="hook"/>
+  <text x="350" y="155" class="label" font-weight="bold">🔌 outputOptions</text>
+  
+  <line x1="350" y1="170" x2="350" y2="200" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Decision diamond -->
+  <path d="M 350,200 L 420,240 L 350,280 L 280,240 Z" fill="#FFF9C4" stroke="#F57C00" stroke-width="2"/>
+  <text x="350" y="240" class="label" font-weight="bold">Errors?</text>
+  
+  <!-- ERROR PATH -->
+  <line x1="280" y1="240" x2="170" y2="240" stroke="#C62828" stroke-width="2" marker-end="url(#arrow-error)"/>
+  <text x="220" y="230" style="font-size: 11px; fill: #C62828; font-weight: bold;">YES</text>
+  
+  <rect x="90" y="215" width="80" height="50" rx="5" class="hook"/>
+  <text x="130" y="235" class="label" font-size="11px" font-weight="bold">🔌 buildEnd</text>
+  <text x="130" y="250" style="font-size: 9px; fill: #666;">(with error)</text>
+  
+  <line x1="130" y1="265" x2="130" y2="295" stroke="#C62828" stroke-width="2" marker-end="url(#arrow-error)"/>
+  
+  <ellipse cx="130" cy="320" rx="60" ry="25" class="error"/>
+  <text x="130" y="325" style="font-size: 12px; fill: #C62828; font-weight: bold; text-anchor: middle;">Failed</text>
+  
+  <!-- SUCCESS PATH -->
+  <line x1="420" y1="240" x2="530" y2="240" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrow-success)"/>
+  <text x="470" y="230" style="font-size: 11px; fill: #2E7D32; font-weight: bold;">NO</text>
+  
+  <rect x="450" y="215" width="80" height="50" rx="5" class="hook"/>
+  <text x="490" y="235" class="label" font-size="11px" font-weight="bold">🔌 write</text>
+  <text x="490" y="250" style="font-size: 9px; fill: #666;">Bundle</text>
+  
+  <line x1="490" y1="265" x2="490" y2="300" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrow-success)"/>
+  
+  <!-- Write to disk -->
+  <rect x="410" y="305" width="160" height="50" rx="5" class="process"/>
+  <text x="490" y="325" class="label">Write to dist/</text>
+  <text x="490" y="340" class="small">All chunks, assets, HTML</text>
+  
+  <line x1="490" y1="355" x2="490" y2="380" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Generate manifest -->
+  <rect x="410" y="385" width="160" height="50" rx="5" class="process"/>
+  <text x="490" y="405" class="label">Generate manifest.json</text>
+  <text x="490" y="420" class="small">File mappings & hashes</text>
+  
+  <line x1="490" y1="435" x2="490" y2="460" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Plugin Hook: buildEnd -->
+  <rect x="410" y="465" width="160" height="40" rx="5" class="hook"/>
+  <text x="490" y="490" class="label" font-weight="bold">🔌 buildEnd</text>
+  
+  <line x1="490" y1="505" x2="490" y2="530" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Plugin Hook: closeBundle -->
+  <rect x="410" y="535" width="160" height="40" rx="5" class="hook"/>
+  <text x="490" y="560" class="label" font-weight="bold">🔌 closeBundle</text>
+  
+  <line x1="490" y1="575" x2="490" y2="600" stroke="#2E7D32" stroke-width="3" marker-end="url(#arrow-success)"/>
+  
+  <!-- Success -->
+  <ellipse cx="490" cy="620" rx="80" ry="25" class="success"/>
+  <text x="490" y="625" style="font-size: 14px; fill: #2E7D32; font-weight: bold; text-anchor: middle;">Build Complete!</text>
+  
+  <!-- dist/ structure visualization -->
+  <rect x="20" y="380" width="180" height="220" rx="5" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2"/>
+  <text x="110" y="405" style="font-size: 13px; font-weight: bold; fill: #2E7D32; text-anchor: middle;">dist/ Output</text>
+  
+  <text x="30" y="430" style="font-size: 10px; font-family: monospace; fill: #666;">dist/</text>
+  <text x="35" y="448" style="font-size: 10px; font-family: monospace; fill: #666;">├── index.html</text>
+  <text x="35" y="466" style="font-size: 10px; font-family: monospace; fill: #666;">├── assets/</text>
+  <text x="40" y="484" style="font-size: 9px; font-family: monospace; fill: #666;">  ├── main.a1b2c3.js</text>
+  <text x="40" y="500" style="font-size: 9px; font-family: monospace; fill: #666;">  ├── main.a1b2c3.js.map</text>
+  <text x="40" y="516" style="font-size: 9px; font-family: monospace; fill: #666;">  ├── vendor.d4e5f6.js</text>
+  <text x="40" y="532" style="font-size: 9px; font-family: monospace; fill: #666;">  ├── vendor.d4e5f6.js.map</text>
+  <text x="40" y="548" style="font-size: 9px; font-family: monospace; fill: #666;">  └── style.g7h8i9.css</text>
+  <text x="35" y="566" style="font-size: 10px; font-family: monospace; fill: #666;">└── manifest.json</text>
+  
+  <!-- Stats box -->
+  <rect x="230" y="380" width="160" height="140" rx="5" fill="#E3F2FD" stroke="#2196F3" stroke-width="2"/>
+  <text x="310" y="405" style="font-size: 13px; font-weight: bold; fill: #1976D2; text-anchor: middle;">Build Stats</text>
+  
+  <text x="240" y="430" style="font-size: 10px; fill: #666;">✓ Size: 245 KB (gzipped)</text>
+  <text x="240" y="448" style="font-size: 10px; fill: #666;">✓ Chunks: 3</text>
+  <text x="240" y="466" style="font-size: 10px; fill: #666;">✓ Modules: 127</text>
+  <text x="240" y="484" style="font-size: 10px; fill: #666;">✓ Time: 2.4s</text>
+  <text x="240" y="502" style="font-size: 10px; fill: #666;">✓ Source maps: Yes</text>
+  
+  <!-- Legend -->
+  <rect x="20" y="60" width="140" height="85" rx="5" fill="#F5F5F5" stroke="#999" stroke-width="1"/>
+  <text x="90" y="80" style="font-size: 11px; font-weight: bold; fill: #333; text-anchor: middle;">Legend</text>
+  <rect x="28" y="88" width="30" height="14" class="hook"/>
+  <text x="63" y="98" style="font-size: 9px; fill: #333;">Plugin Hook</text>
+  <rect x="28" y="107" width="30" height="14" class="process"/>
+  <text x="63" y="117" style="font-size: 9px; fill: #333;">Process</text>
+  <rect x="28" y="126" width="30" height="14" class="success"/>
+  <text x="63" y="136" style="font-size: 9px; fill: #333;">Success</text>
+</svg>

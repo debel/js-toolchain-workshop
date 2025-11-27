@@ -1,0 +1,107 @@
+<svg viewBox="0 0 750 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+    </marker>
+  </defs>
+  
+  <style>
+    .title { font-size: 20px; font-weight: bold; fill: #333; }
+    .hook { fill: #FFD54F; stroke: #F57C00; stroke-width: 2; }
+    .process { fill: #90CAF9; stroke: #1976D2; stroke-width: 2; }
+    .tool { fill: #A5D6A7; stroke: #388E3C; stroke-width: 2; }
+    .label { font-size: 13px; fill: #333; text-anchor: middle; }
+    .small { font-size: 10px; fill: #666; text-anchor: middle; }
+  </style>
+  
+  <text x="375" y="30" class="title" text-anchor="middle">PRODUCTION - Phase 2: Rollup Module Graph Build</text>
+  
+  <!-- Start Rollup -->
+  <rect x="295" y="60" width="160" height="40" rx="5" class="tool"/>
+  <text x="375" y="85" class="label" font-weight="bold">🎲 Rollup Build</text>
+  
+  <line x1="375" y1="100" x2="375" y2="125" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Plugin Hook: buildStart -->
+  <rect x="295" y="130" width="160" height="40" rx="5" class="hook"/>
+  <text x="375" y="155" class="label" font-weight="bold">🔌 buildStart</text>
+  
+  <line x1="375" y1="170" x2="375" y2="195" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Process entry points -->
+  <rect x="295" y="200" width="160" height="45" rx="5" class="process"/>
+  <text x="375" y="220" class="label">Process Entry Points</text>
+  <text x="375" y="235" class="small">index.html, main.ts</text>
+  
+  <line x1="375" y1="245" x2="375" y2="270" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Module resolution loop -->
+  <rect x="200" y="275" width="350" height="320" rx="10" fill="#FFF3E0" stroke="#FF9800" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="375" y="300" style="font-size: 14px; font-weight: bold; fill: #FF6F00; text-anchor: middle;">For Each Module</text>
+  
+  <!-- Plugin Hook: resolveId -->
+  <rect x="245" y="315" width="260" height="40" rx="5" class="hook"/>
+  <text x="375" y="340" class="label" font-weight="bold">🔌 resolveId</text>
+  
+  <line x1="375" y1="355" x2="375" y2="375" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Plugin Hook: load -->
+  <rect x="245" y="380" width="260" height="40" rx="5" class="hook"/>
+  <text x="375" y="405" class="label" font-weight="bold">🔌 load</text>
+  
+  <line x1="375" y1="420" x2="375" y2="440" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Plugin Hook: transform -->
+  <rect x="245" y="445" width="260" height="40" rx="5" class="hook"/>
+  <text x="375" y="470" class="label" font-weight="bold">🔌 transform</text>
+  
+  <line x1="375" y1="485" x2="375" y2="505" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Add to module graph -->
+  <rect x="245" y="510" width="260" height="50" rx="5" class="process"/>
+  <text x="375" y="530" class="label">Add to Module Graph</text>
+  <text x="375" y="545" class="small">Parse imports, build tree</text>
+  
+  <!-- Loop back arrow -->
+  <path d="M 200,535 L 170,535 L 170,335 L 245,335" stroke="#666" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="140" y="440" style="font-size: 11px; fill: #666;" transform="rotate(-90 140 440)">Next Import</text>
+  
+  <line x1="375" y1="595" x2="375" y2="625" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Complete graph -->
+  <rect x="295" y="630" width="160" height="50" rx="5" class="process"/>
+  <text x="375" y="650" class="label">Module Graph</text>
+  <text x="375" y="665" class="small">Complete</text>
+  
+  <!-- Side panel: module graph visualization -->
+  <rect x="575" y="130" width="160" height="230" rx="5" fill="#E3F2FD" stroke="#2196F3" stroke-width="2"/>
+  <text x="655" y="155" style="font-size: 13px; font-weight: bold; fill: #1976D2; text-anchor: middle;">Module Graph</text>
+  
+  <text x="585" y="180" style="font-size: 10px; font-family: monospace; fill: #666;">index.html</text>
+  <line x1="585" y1="185" x2="600" y2="195" stroke="#666" stroke-width="1"/>
+  <text x="605" y="200" style="font-size: 10px; font-family: monospace; fill: #666;">main.ts</text>
+  <line x1="605" y1="205" x2="620" y2="215" stroke="#666" stroke-width="1"/>
+  <text x="625" y="220" style="font-size: 10px; font-family: monospace; fill: #666;">App.tsx</text>
+  <line x1="625" y1="225" x2="640" y2="235" stroke="#666" stroke-width="1"/>
+  <text x="645" y="240" style="font-size: 10px; font-family: monospace; fill: #666;">Button.tsx</text>
+  <line x1="625" y1="225" x2="640" y2="255" stroke="#666" stroke-width="1"/>
+  <text x="645" y="260" style="font-size: 10px; font-family: monospace; fill: #666;">styles.css</text>
+  <line x1="605" y1="205" x2="620" y2="275" stroke="#666" stroke-width="1"/>
+  <text x="625" y="280" style="font-size: 10px; font-family: monospace; fill: #666;">utils.ts</text>
+  <line x1="605" y1="205" x2="620" y2="295" stroke="#666" stroke-width="1"/>
+  <text x="625" y="300" style="font-size: 10px; font-family: monospace; fill: #666;">api.ts</text>
+  <line x1="625" y1="305" x2="640" y2="315" stroke="#666" stroke-width="1"/>
+  <text x="645" y="320" style="font-size: 9px; font-family: monospace; fill: #666;">axios (dep)</text>
+  <line x1="585" y1="185" x2="600" y2="335" stroke="#666" stroke-width="1"/>
+  <text x="605" y="340" style="font-size: 10px; font-family: monospace; fill: #666;">router.ts</text>
+  
+  <!-- Legend -->
+  <rect x="20" y="570" width="150" height="100" rx="5" fill="#F5F5F5" stroke="#999" stroke-width="1"/>
+  <text x="95" y="590" style="font-size: 12px; font-weight: bold; fill: #333; text-anchor: middle;">Legend</text>
+  <rect x="30" y="600" width="40" height="18" class="hook"/>
+  <text x="75" y="612" style="font-size: 10px; fill: #333;">Plugin Hook</text>
+  <rect x="30" y="623" width="40" height="18" class="process"/>
+  <text x="75" y="635" style="font-size: 10px; fill: #333;">Process</text>
+  <rect x="30" y="646" width="40" height="18" class="tool"/>
+  <text x="75" y="658" style="font-size: 10px; fill: #333;">Tool Used</text>
+</svg>

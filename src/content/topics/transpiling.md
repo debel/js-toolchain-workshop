@@ -2,6 +2,7 @@
 title: "Transpiling to JS"
 type: 'lesson'
 order: 5
+hidden: true
 description: "Who wants to write plain old boring JavaScript? Transpilation allow us to write our code in other languages or even implement our custom syntax!"
 ---
 

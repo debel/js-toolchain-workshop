@@ -1,12 +1,12 @@
 <svg viewBox="0 0 800 750" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#333" />
+      <polygon points="0 0, 10 3, 0 6" fill="#eceae5" />
     </marker>
   </defs>
   
   <style>
-    .title { font-size: 20px; font-weight: bold; fill: #333; }
+    .title { font-size: 20px; font-weight: bold; fill: #eceae5; }
     .hook { fill: #FFD54F; stroke: #F57C00; stroke-width: 2; }
     .process { fill: #90CAF9; stroke: #1976D2; stroke-width: 2; }
     .tool { fill: #A5D6A7; stroke: #388E3C; stroke-width: 2; }
@@ -15,7 +15,7 @@
     .small { font-size: 10px; fill: #666; text-anchor: middle; }
   </style>
   
-  <text x="400" y="30" class="title" text-anchor="middle">PRODUCTION - Phase 3: Optimization & Rendering</text>
+  <text x="400" y="30" class="title" text-anchor="middle">PRODUCTION - Phase 3: Optimization and Rendering</text>
   
   <!-- Module graph complete -->
   <rect x="320" y="60" width="160" height="40" rx="5" class="process"/>
@@ -106,14 +106,14 @@
   <text x="35" y="470" style="font-size: 9px; fill: #666;">Source maps</text>
   
   <!-- Legend -->
-  <rect x="670" y="520" width="120" height="130" rx="5" fill="#F5F5F5" stroke="#999" stroke-width="1"/>
-  <text x="730" y="540" style="font-size: 11px; font-weight: bold; fill: #333; text-anchor: middle;">Legend</text>
+  <rect x="670" y="520" width="120" height="130" rx="5" fill="#333" stroke="#999" stroke-width="1"/>
+  <text x="730" y="540" style="font-size: 11px; font-weight: bold; fill: #eceae5; text-anchor: middle;">Legend</text>
   <rect x="678" y="548" width="35" height="16" class="hook"/>
-  <text x="718" y="558" style="font-size: 9px; fill: #333;">Plugin Hook</text>
+  <text x="718" y="558" style="font-size: 9px; fill: #eceae5;">Plugin Hook</text>
   <rect x="678" y="569" width="35" height="16" class="tool"/>
-  <text x="718" y="579" style="font-size: 9px; fill: #333;">Tool Used</text>
+  <text x="718" y="579" style="font-size: 9px; fill: #eceae5;">Tool Used</text>
   <rect x="678" y="590" width="35" height="16" class="optimize"/>
-  <text x="718" y="600" style="font-size: 9px; fill: #333;">Optimization</text>
+  <text x="718" y="600" style="font-size: 9px; fill: #eceae5;">Optimization</text>
   <rect x="678" y="611" width="35" height="16" class="process"/>
-  <text x="718" y="621" style="font-size: 9px; fill: #333;">Process</text>
+  <text x="718" y="621" style="font-size: 9px; fill: #eceae5;">Process</text>
 </svg>

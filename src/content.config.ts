@@ -10,6 +10,7 @@ const topics = defineCollection({
     order: z.number().optional(),
     links: z.record(z.string()).optional(),
     hasSlides: z.boolean().default(true),
+    hideTableOfContents: z.boolean().default(false),
   }),
 });
 

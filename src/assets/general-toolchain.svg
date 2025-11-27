@@ -1,0 +1,157 @@
+<svg viewBox="0 0 600 1400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#eceae5" />
+    </marker>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <style>
+    .title { font-size: 24px; font-weight: bold; fill: #eceae5; text-anchor: middle; }
+    .section-title { font-size: 18px; font-weight: bold; fill: #fff; text-anchor: middle; }
+    .label { font-size: 13px; fill: #333; text-anchor: middle; }
+    .small { font-size: 10px; fill: #666; text-anchor: middle; }
+    .source { fill: #81C784; stroke: #2E7D32; stroke-width: 2; }
+    .transform { fill: #64B5F6; stroke: #1565C0; stroke-width: 2; }
+    .bundle { fill: #FFB74D; stroke: #E65100; stroke-width: 2; }
+    .optimize { fill: #BA68C8; stroke: #6A1B9A; stroke-width: 2; }
+    .output { fill: #4DD0E1; stroke: #00838F; stroke-width: 2; }
+  </style>
+  
+  <!-- Title -->
+  <text x="300" y="40" class="title">Web Development Toolchain</text>
+  
+  <!-- SOURCE CODE SECTION -->
+  <rect x="100" y="80" width="400" height="200" rx="10" class="source" filter="url(#shadow)"/>
+  <text x="300" y="110" class="section-title">1. Source Code</text>
+  
+  <rect x="120" y="130" width="160" height="50" rx="5" fill="#C8E6C9" stroke="#2E7D32" stroke-width="1"/>
+  <text x="200" y="155" class="label" font-weight="bold">TypeScript/JSX</text>
+  <text x="200" y="168" class="small">.ts, .tsx, .jsx</text>
+  
+  <rect x="320" y="130" width="160" height="50" rx="5" fill="#C8E6C9" stroke="#2E7D32" stroke-width="1"/>
+  <text x="400" y="155" class="label" font-weight="bold">SCSS/CSS</text>
+  <text x="400" y="168" class="small">.scss, .css, .less</text>
+  
+  <rect x="120" y="195" width="160" height="50" rx="5" fill="#C8E6C9" stroke="#2E7D32" stroke-width="1"/>
+  <text x="200" y="220" class="label" font-weight="bold">Assets</text>
+  <text x="200" y="233" class="small">Images, fonts, etc.</text>
+  
+  <rect x="320" y="195" width="160" height="50" rx="5" fill="#C8E6C9" stroke="#2E7D32" stroke-width="1"/>
+  <text x="400" y="220" class="label" font-weight="bold">Dependencies</text>
+  <text x="400" y="233" class="small">node_modules</text>
+  
+  <!-- Arrow down -->
+  <line x1="300" y1="280" x2="300" y2="325" stroke="#eceae5" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- TRANSFORM SECTION -->
+  <rect x="100" y="330" width="400" height="200" rx="10" class="transform" filter="url(#shadow)"/>
+  <text x="300" y="360" class="section-title">2. Transform</text>
+  
+  <rect x="120" y="380" width="160" height="55" rx="5" fill="#BBDEFB" stroke="#1565C0" stroke-width="1"/>
+  <text x="200" y="405" class="label" font-weight="bold">Transpile</text>
+  <text x="200" y="420" class="small">TS→JS, JSX→JS</text>
+  <text x="200" y="433" class="small">ESNext→ES5</text>
+  
+  <rect x="320" y="380" width="160" height="55" rx="5" fill="#BBDEFB" stroke="#1565C0" stroke-width="1"/>
+  <text x="400" y="405" class="label" font-weight="bold">Process CSS</text>
+  <text x="400" y="420" class="small">PostCSS</text>
+  <text x="400" y="433" class="small">Autoprefixer</text>
+  
+  <rect x="120" y="450" width="160" height="55" rx="5" fill="#BBDEFB" stroke="#1565C0" stroke-width="1"/>
+  <text x="200" y="475" class="label" font-weight="bold">Module Resolution</text>
+  <text x="200" y="490" class="small">Resolve imports</text>
+  
+  <rect x="320" y="450" width="160" height="55" rx="5" fill="#BBDEFB" stroke="#1565C0" stroke-width="1"/>
+  <text x="400" y="472" class="label" font-weight="bold">Tools:</text>
+  <text x="400" y="487" class="small">Babel, esbuild,</text>
+  <text x="400" y="500" class="small">SWC, TypeScript</text>
+  
+  <!-- Arrow down -->
+  <line x1="300" y1="530" x2="300" y2="575" stroke="#eceae5" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- BUNDLE SECTION -->
+  <rect x="100" y="580" width="400" height="200" rx="10" class="bundle" filter="url(#shadow)"/>
+  <text x="300" y="610" class="section-title">3. Bundle</text>
+  
+  <rect x="120" y="630" width="160" height="55" rx="5" fill="#FFE0B2" stroke="#E65100" stroke-width="1"/>
+  <text x="200" y="655" class="label" font-weight="bold">Module Graph</text>
+  <text x="200" y="670" class="small">Analyze dependencies</text>
+  
+  <rect x="320" y="630" width="160" height="55" rx="5" fill="#FFE0B2" stroke="#E65100" stroke-width="1"/>
+  <text x="400" y="655" class="label" font-weight="bold">Code Splitting</text>
+  <text x="400" y="670" class="small">Separate chunks</text>
+  
+  <rect x="120" y="700" width="160" height="55" rx="5" fill="#FFE0B2" stroke="#E65100" stroke-width="1"/>
+  <text x="200" y="725" class="label" font-weight="bold">Tree Shaking</text>
+  <text x="200" y="740" class="small">Remove unused code</text>
+  
+  <rect x="320" y="700" width="160" height="55" rx="5" fill="#FFE0B2" stroke="#E65100" stroke-width="1"/>
+  <text x="400" y="722" class="label" font-weight="bold">Tools:</text>
+  <text x="400" y="737" class="small">Webpack, Rollup,</text>
+  <text x="400" y="750" class="small">esbuild, Parcel</text>
+  
+  <!-- Arrow down -->
+  <line x1="300" y1="780" x2="300" y2="825" stroke="#eceae5" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- OPTIMIZE SECTION -->
+  <rect x="100" y="830" width="400" height="200" rx="10" class="optimize" filter="url(#shadow)"/>
+  <text x="300" y="860" class="section-title">4. Optimize</text>
+  
+  <rect x="120" y="880" width="160" height="55" rx="5" fill="#E1BEE7" stroke="#6A1B9A" stroke-width="1"/>
+  <text x="200" y="905" class="label" font-weight="bold">Minification</text>
+  <text x="200" y="920" class="small">Compress code</text>
+  
+  <rect x="320" y="880" width="160" height="55" rx="5" fill="#E1BEE7" stroke="#6A1B9A" stroke-width="1"/>
+  <text x="400" y="905" class="label" font-weight="bold">Compression</text>
+  <text x="400" y="920" class="small">gzip, brotli</text>
+  
+  <rect x="120" y="950" width="160" height="55" rx="5" fill="#E1BEE7" stroke="#6A1B9A" stroke-width="1"/>
+  <text x="200" y="975" class="label" font-weight="bold">Source Maps</text>
+  <text x="200" y="990" class="small">Debug mapping</text>
+  
+  <rect x="320" y="950" width="160" height="55" rx="5" fill="#E1BEE7" stroke="#6A1B9A" stroke-width="1"/>
+  <text x="400" y="972" class="label" font-weight="bold">Tools:</text>
+  <text x="400" y="987" class="small">Terser, esbuild,</text>
+  <text x="400" y="1000" class="small">UglifyJS</text>
+  
+  <!-- Arrow down -->
+  <line x1="300" y1="1030" x2="300" y2="1075" stroke="#eceae5" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- OUTPUT SECTION -->
+  <rect x="100" y="1080" width="400" height="280" rx="10" class="output" filter="url(#shadow)"/>
+  <text x="300" y="1110" class="section-title">5. Output / Deploy</text>
+  
+  <!-- Production Output -->
+  <rect x="120" y="1130" width="200" height="210" rx="5" fill="#B2EBF2" stroke="#00838F" stroke-width="2"/>
+  <text x="220" y="1155" style="font-size: 14px; font-weight: bold; fill: #00838F; text-anchor: middle;">Production Build</text>
+  
+  <text x="130" y="1180" style="font-size: 11px; font-family: monospace; fill: #333;">dist/</text>
+  <text x="135" y="1198" style="font-size: 10px; font-family: monospace; fill: #333;">├── index.html</text>
+  <text x="135" y="1216" style="font-size: 10px; font-family: monospace; fill: #333;">├── assets/</text>
+  <text x="140" y="1234" style="font-size: 9px; font-family: monospace; fill: #333;">  ├── main.[hash].js</text>
+  <text x="140" y="1250" style="font-size: 9px; font-family: monospace; fill: #333;">  ├── main.js.map</text>
+  <text x="140" y="1266" style="font-size: 9px; font-family: monospace; fill: #333;">  ├── vendor.[hash].js</text>
+  <text x="140" y="1282" style="font-size: 9px; font-family: monospace; fill: #333;">  ├── chunk.[hash].js</text>
+  <text x="140" y="1298" style="font-size: 9px; font-family: monospace; fill: #333;">  └── style.[hash].css</text>
+  <text x="135" y="1316" style="font-size: 10px; font-family: monospace; fill: #333;">└── manifest.json</text>
+  
+  <!-- Dev Output -->
+  <rect x="340" y="1130" width="140" height="210" rx="5" fill="#B2EBF2" stroke="#00838F" stroke-width="2"/>
+  <text x="410" y="1155" style="font-size: 14px; font-weight: bold; fill: #00838F; text-anchor: middle;">Dev Mode</text>
+  
+  <rect x="355" y="1175" width="110" height="45" rx="5" fill="#E0F7FA" stroke="#00838F" stroke-width="1"/>
+  <text x="410" y="1195" style="font-size: 12px; fill: #333; text-anchor: middle;">Dev Server</text>
+  <text x="410" y="1210" style="font-size: 10px; fill: #666; text-anchor: middle;">localhost:5173</text>
+  
+  <rect x="355" y="1230" width="110" height="40" rx="5" fill="#E0F7FA" stroke="#00838F" stroke-width="1"/>
+  <text x="410" y="1245" style="font-size: 11px; fill: #333; text-anchor: middle;">On-demand</text>
+  <text x="410" y="1260" style="font-size: 11px; fill: #333; text-anchor: middle;">Transform</text>
+  
+  <rect x="355" y="1280" width="110" height="45" rx="5" fill="#E0F7FA" stroke="#00838F" stroke-width="1"/>
+  <text x="410" y="1298" style="font-size: 11px; fill: #333; text-anchor: middle;">Hot Module</text>
+  <text x="410" y="1313" style="font-size: 11px; fill: #333; text-anchor: middle;">Reload (HMR)</text>
+  
+</svg>
